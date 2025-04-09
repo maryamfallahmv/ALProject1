@@ -9,7 +9,6 @@ codeunit 50104 "API User Fetcher"
         JsonArray: JsonArray;
         JsonToken: JsonToken;
         JsonValue: JsonValue;
-        UserRecord: Record "Temporary User";
         UserId: Integer;
         UserName, UserEmail, UserUsername : Text;
         i: Integer;
@@ -33,13 +32,6 @@ codeunit 50104 "API User Fetcher"
 
                     JsonObject.Get('username', JsonToken);
                     UserUsername := JsonToken.AsValue().AsText();
-
-                    UserRecord.Init();
-                    UserRecord.Id := UserId;
-                    UserRecord.Name := UserName;
-                    UserRecord.Email := UserEmail;
-                    UserRecord.Username := UserUsername;
-                    UserRecord.Insert();
                 end;
             end;
         end
